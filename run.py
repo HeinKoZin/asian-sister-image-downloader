@@ -5,8 +5,11 @@ import shutil
 
 subDirectory = input("Enter sub-directory: ")
 
+code = 1
+
 while True:
-    code = input("Enter a code: ")
+    
+    # code = input("Enter a code: ")
     try:
         int(code)
     except:
@@ -21,6 +24,7 @@ while True:
     if len(urls) == 1:
         print(f'No collection have {code} code...')
         print()
+        code += 1
         continue
 
     count = 0
@@ -46,6 +50,7 @@ while True:
     else:
         print(f"You already have {outputDirectory} directory...")
         print()
+        code += 1
         continue
 
     urls = urls[1:len(urls)]
@@ -70,4 +75,8 @@ while True:
         print('\r' + (''.join(indicator)), end='')
     print('\r' + (''.join(indicator)))
     print("Download Complete!!!!")
+    code += 1
     print()
+
+    if (code > 2090):
+        break
